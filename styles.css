@@ -1,0 +1,266 @@
+:root {
+  --bg: #0b1220;
+  --surface: rgba(19, 28, 46, 0.75);
+  --text: #f7f9ff;
+  --muted: #aeb9d6;
+  --primary: #6f8cff;
+  --accent: #2be4d8;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #1d2a4a 0%, #0b1220 45%, #060a13 100%);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.bg-glow {
+  position: fixed;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  filter: blur(70px);
+  z-index: -1;
+}
+
+.bg-glow-one {
+  background: rgba(111, 140, 255, 0.35);
+  top: -100px;
+  left: -80px;
+}
+
+.bg-glow-two {
+  background: rgba(43, 228, 216, 0.28);
+  bottom: -120px;
+  right: -90px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(16px);
+  background: rgba(6, 10, 19, 0.55);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.main-nav a:hover {
+  color: var(--text);
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1.2rem;
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+}
+
+main {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+.section {
+  padding: 4.5rem 0 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.1;
+  margin: 0.7rem 0;
+  max-width: 18ch;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.chip {
+  display: inline-flex;
+  border: 1px solid rgba(111, 140, 255, 0.5);
+  color: #dce4ff;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.87rem;
+}
+
+.hero-copy,
+.section-heading p,
+.contact p {
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+.hero-actions {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  padding: 0.72rem 1.2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-primary {
+  color: #081227;
+  background: linear-gradient(140deg, var(--accent), #7df5ec);
+}
+
+.btn-secondary {
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.section-heading h2,
+.contact h2 {
+  margin-bottom: 0.25rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.about-grid,
+.projects-grid {
+  margin-top: 1.7rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card,
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.project-card span {
+  color: #bfc9e8;
+  font-size: 0.9rem;
+}
+
+.project-card h3 {
+  margin: 0.55rem 0;
+}
+
+.project-card p {
+  color: var(--muted);
+}
+
+.project-card a {
+  color: #92a9ff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.skills-list {
+  margin-top: 1.5rem;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.skills-list li {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.contact {
+  margin-bottom: 4rem;
+}
+
+.site-footer {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .about-grid,
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skills-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    right: 5vw;
+    top: calc(100% + 8px);
+    background: rgba(10, 15, 27, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.85rem;
+    display: none;
+    flex-direction: column;
+    min-width: 160px;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .about-grid,
+  .projects-grid,
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
+}
